@@ -39,7 +39,9 @@ function App() {
             .then((jsonResponse) => {
                 if (jsonResponse.Response === 'True') {
                     setMovies(jsonResponse.Search);
-                    setLoading(false);
+                    setTimeout(() => {
+                        setLoading(false);
+                    }, 2000);
                 } else {
                     setErrorMessage(jsonResponse.Error);
                     setLoading(false);
@@ -56,7 +58,17 @@ function App() {
             <p className="App-intro">Sharing a few of our favourite movies</p>
             <div className="movies">
                 {loading && !errorMessage ? (
-                    <span>loading...</span>
+                    <div className="lds-grid">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 ) : errorMessage ? (
                     <div className="errorMessage">{errorMessage}</div>
                 ) : (
