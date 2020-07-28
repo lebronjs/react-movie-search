@@ -13,8 +13,7 @@ interface Movie {
     Poster: string;
 }
 
-const MOVIE_API_URL =
-    'https://www.omdbapi.com/?s=Detective Conan&apikey=4a3b711b'; // you should replace this with yours
+const MOVIE_API_URL = 'https://www.omdbapi.com/?s=Detective Conan&apikey=4a3b711b'; // you should replace this with yours
 
 const movieReducer = function (state, action) {
     switch (action.type) {
@@ -92,7 +91,7 @@ function App() {
             </Helmet>
             <Header text="Lebronjs Movie Search" />
             <Search search={search} />
-            <p className="App-intro">Sharing a few of our favourite movies</p>
+            <p className="App-intro">Grid layout is awsome !</p>
             <div className="movies">
                 {loading && !errorMessage ? (
                     <div className="lds-grid">
@@ -109,9 +108,7 @@ function App() {
                 ) : errorMessage ? (
                     <div className="errorMessage">{errorMessage}</div>
                 ) : (
-                    movies.map((movie: Movie, index) => (
-                        <Movie key={`${index}-${movie.Title}`} movie={movie} />
-                    ))
+                    movies.map((movie: Movie, index) => <Movie key={`${index}-${movie.Title}`} movie={movie} />)
                 )}
             </div>
         </div>
